@@ -1,19 +1,3 @@
-#define _DEFAULT_SOURCE
-
-#include<iostream>
-#include<string>
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<strings.h>
-#include<unistd.h>
-#include<sys/stat.h>
-#include<sys/types.h>
-#include<fcntl.h>
-#include<dirent.h>
-#include<errno.h>
-#include<sys/uio.h>
-
 #include"ProcessManager.h"
 
 using namespace std;
@@ -98,7 +82,10 @@ void ProcessManager::PrintContent()
 	remote->iov_len = span;
 	ssize_t nread;
 	nread = process_vm_readv(pID, local, 1, remote, 1, 0);
-	cout << "Stored Data = "<<op<<endl;//========================================================
+	for (int i = 0;i<nread;i++)
+	{
+		cout <<(void*)(BaseAddress+i)<<": "<< hex << (int)op[i]<<endl;
+	}
 	if (nread != span)
 		cout << "Full Data Read failed due to unaccessibility of a memory location\n";
 	free(op);
@@ -106,11 +93,15 @@ void ProcessManager::PrintContent()
 
 int main()
 {
-	long id;
+	long id,BA;
 	cout << "Enter PID of the Process\n";
 	cin >> id;
-	ProcessManager P(id);
-	P.FindBaseAddress(NULL);
-	P.PrintContent();
+	/*ProcessManager P(id);
+	P.FindBaseAddress("[stack]");
+	P.PrintContent();*/
+	cout << "Enter BaseAddress\n";
+	cin >> BA;
+	ProcessManager P(id,BA,4);
+	P.getContent("int");
 	return 0;
 }
