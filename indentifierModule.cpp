@@ -1,16 +1,7 @@
-#include <iostream> 
-#include <stdio.h>
-#include <fstream>
-#include <string>
-#include <sstream>
-#include <string.h>
+#include "ProcessManager.h"
 using namespace std;
 
-int main () {
-	int add;
-	long unsigned int  pID ;
-	cin >> pID ;
-	char test[16] = "7ffd3b993010";
+ void ProcessManager::identifierFunction(long unsigned int pID, char *test) {
 	int fd = 0;
 	char FileLocation[1024];
 	char ChBaseAddress[1024];
@@ -55,11 +46,9 @@ int main () {
 				count+=1;
 			}
 		}
-		// cout << addresses[0] << ":"<< addresses[1]<< endl;
 	}
 	if(count==0) {
 		cout << "it isnt here!";
 	}
 	fclose(ptr);
-    return 0;
 }

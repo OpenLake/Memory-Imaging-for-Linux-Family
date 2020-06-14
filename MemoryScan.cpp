@@ -96,12 +96,16 @@ int main()
 	long id,BA;
 	cout << "Enter PID of the Process\n";
 	cin >> id;
-	/*ProcessManager P(id);
-	P.FindBaseAddress("[stack]");
-	P.PrintContent();*/
+	// // ProcessManager P(id);
+	// P.FindBaseAddress("[stack]");
+	// P.PrintContent();
 	cout << "Enter BaseAddress\n";
 	cin >> BA;
-	ProcessManager P(id,BA,4);
-	P.getContent("int");
+	ProcessManager P(id,BA,16);
+	char temp[4] = "int";
+	P.getContent(temp);
+	 // cout << t;
+	// char test[16] = "561b8f6ad001";
+	// P.identifierFunction(id,test);
 	return 0;
 }

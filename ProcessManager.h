@@ -25,6 +25,8 @@ typedef unsigned int uint;
 template <typename T>
 string ToHex(T i);
 
+
+
 class ProcessManager
 {	
 public:
@@ -49,6 +51,7 @@ public:
 	void FindBaseAddress(char* Module = NULL);
 	void PrintContent();
 	char* Read();
-	void getContent(char * Module = NULL);
+	void getContent(char* Module );
+	void identifierFunction(long unsigned int pID, char *test);
 };
 
