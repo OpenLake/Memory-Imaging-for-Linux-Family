@@ -1,7 +1,6 @@
 #include "ProcessManager.h"
 using namespace std;
-
- void ProcessManager::identifierFunction(long unsigned int pID, char *test) {
+int** ProcessManager :: getAddresses (long unsigned int pID) {
 	int fd = 0;
 	char FileLocation[1024];
 	char ChBaseAddress[1024];
@@ -16,6 +15,14 @@ using namespace std;
 	char line [1000];
 	int i =0;
 	int count =0;
+	
+	int** AddressesList ;
+	AddressesList = new int*[30];
+	for(int i =0;i<30;i++) {
+		AddressesList[i] = new int[2];
+	}
+	AddressesList[0][0] = pID;
+	AddressesList[0][1] = 0;
 	while(fgets(line, sizeof(line), ptr)){
 		i++;
 		stringstream ss (line);
@@ -29,26 +36,14 @@ using namespace std;
 			token = strtok(NULL, "-");
 			j+=1; 
 		}
-		int binNum1, binNum2, testval;
+		int binNum1, binNum2;
     	binNum1 = (int)strtol(addresses[0], NULL, 16);
     	binNum2 = (int)strtol(addresses[1], NULL, 16);
-		testval = (int)strtol(test, NULL,16);
-    	if(binNum1 < binNum2) {	
-			if( binNum1 < testval && testval < binNum2) {
-				cout << "Its there! \n";
-				printf("Address Stored: %p \n", test);
-				count +=1;
-			}
-		}
-		else {
-			if( binNum2 < testval && testval < binNum1) {
-				cout << "Its there \n";
-				count+=1;
-			}
-		}
-	}
-	if(count==0) {
-		cout << "it isnt here!";
-	}
-	fclose(ptr);
+    	AddressesList[i][0] = binNum1;
+    	AddressesList[i][1] = binNum2;
+    	
+    }
+    fclose(ptr);
+    return AddressesList;
+  
 }

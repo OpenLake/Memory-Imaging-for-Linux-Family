@@ -96,16 +96,22 @@ int main()
 	long id,BA;
 	cout << "Enter PID of the Process\n";
 	cin >> id;
-	// // ProcessManager P(id);
+	ProcessManager P(id);
 	// P.FindBaseAddress("[stack]");
 	// P.PrintContent();
-	cout << "Enter BaseAddress\n";
-	cin >> BA;
-	ProcessManager P(id,BA,16);
-	char temp[4] = "int";
-	P.getContent(temp);
-	 // cout << t;
-	// char test[16] = "561b8f6ad001";
-	// P.identifierFunction(id,test);
+	// cout << "Enter BaseAddress\n";
+	// cin >> BA;
+	// ProcessManager P(id,BA,16);
+
+	P.getContent("int");
+
+	char test[16] = "5595f6ae8001";
+	int **add = new int*[30];
+	for (int i=0;i<10; i++){
+		add[i] = new int[2];
+	}
+	add = P.getAddresses(id);
+
+	P.identifierFunction(id,test, add);
 	return 0;
 }

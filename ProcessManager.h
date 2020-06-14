@@ -51,7 +51,8 @@ public:
 	void FindBaseAddress(char* Module = NULL);
 	void PrintContent();
 	char* Read();
-	void getContent(char* Module );
-	void identifierFunction(long unsigned int pID, char *test);
+	int** getAddresses(long unsigned int pid);
+	void getContent(char * Module );
+	void identifierFunction(long unsigned int pid, char* test, int** add) ;
 };
 
