@@ -17,7 +17,7 @@ char* ProcessManager::Read()
 	return op;
 }
 
-void ProcessManager::getContent(char * Module )
+void ProcessManager::getContent(char * Module=NULL )
 {	
 	char* op = Read();
 	if(Module=="int")
