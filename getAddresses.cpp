@@ -24,8 +24,7 @@ int** ProcessManager :: getAddresses (long unsigned int pID) {
 	for(int i =0;i<30;i++) {
 		AddressesList[i] = new int[2];
 	}
-	AddressesList[0][0] = pID;
-	AddressesList[0][1] = 0;
+	i=0;
 	while(fgets(line, sizeof(line), ptr)){
 		i++;
 		stringstream ss (line);
@@ -39,11 +38,10 @@ int** ProcessManager :: getAddresses (long unsigned int pID) {
 			token = strtok(NULL, "-");
 			j+=1; 
 		}
-		int binNum1, binNum2;
-    	binNum1 = (int)strtol(addresses[0], NULL, 16);
-    	binNum2 = (int)strtol(addresses[1], NULL, 16);
-    	AddressesList[i][0] = binNum1;
-    	AddressesList[i][1] = binNum2;
+	
+    	AddressesList[i][0] = (int)strtol(addresses[0], NULL, 16);
+    	AddressesList[i][1]= (int)strtol(addresses[1], NULL, 16);
+
     	
     }
     fclose(ptr);
