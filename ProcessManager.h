@@ -1,4 +1,5 @@
 #define _DEFAULT_SOURCE
+#define _GLIBCXX_USE_CXX11_ABI 0
 
 #include<iostream>
 #include<string>
@@ -21,9 +22,6 @@
 
 using namespace std;
 typedef unsigned int uint;
-
-template <typename T>
-string ToHex(T i);
 
 class ProcessManager
 {	

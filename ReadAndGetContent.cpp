@@ -1,6 +1,25 @@
 #include "ProcessManager.h"
 using namespace std;
 
+template <typename T>
+string ToHex(T i)
+{
+	stringstream stream;
+	stream << hex << i;
+	string s = stream.str();
+	//cout << s << endl;
+	if (s.length() < 2)
+	{
+		s = "0" + s;
+	}
+	if (s.length() > 2)
+	{
+		return "";
+	}
+	stream.str("");
+	return s;
+}
+
 char* ProcessManager::Read()
 {
 	struct iovec* local = new struct iovec;
@@ -17,7 +36,7 @@ char* ProcessManager::Read()
 	return op;
 }
 
-void ProcessManager::getContent(char * Module = NULL)
+void ProcessManager::getContent(char * Module)
 {	
 	char* op = Read();
 	if(Module=="int")
@@ -27,7 +46,8 @@ void ProcessManager::getContent(char * Module = NULL)
 			string s="";
 			for(int i=0;i<4;i++)
 			{
-				s = ToHex((int)op[i])+s;
+				int x =(int)op[i];
+				s = ToHex(x)+s;
 			}
 			s = "0x" + s;
 			contentInt = stoi(s, NULL, 16);
@@ -45,7 +65,8 @@ void ProcessManager::getContent(char * Module = NULL)
 			string s="";
 			for(int i=0;i<8;i++)
 			{
-				s = ToHex((int)op[i])+s;
+				int x =(long int)op[i];
+				s = ToHex(x)+s;
 			}
 			contentInt = stol(s, NULL, 16);
 			cout<<dec<<contentInt<<endl;//Comment Line When Not Debugging
@@ -72,5 +93,4 @@ void ProcessManager::getContent(char * Module = NULL)
 		contentString=s;
 		cout<<contentString<<endl;//Comment Line When Not Debugging	
 	}
-	free(op);
 }
