@@ -105,14 +105,11 @@ int main()
 
 	// P.getContent("int");
 
-	// char test[16] = "5595f6ae8001";
-	// int **add = new int*[30];
-	// for (int i=0;i<10; i++){
-	// 	add[i] = new int[2];
-	// }
+	char test[16] = "565288975001";
+	int **add;
 	add = P.getAddresses(id);
 
-	// P.identifierFunction(id,test, add);
-	cout <<  P.Addresses  << endl;
+	P.identifierFunction(id,test, add);
+	cout <<  P.Addresses  << endl << add <<endl;
 	return 0;
 }

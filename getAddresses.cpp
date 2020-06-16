@@ -1,3 +1,6 @@
+// Takes pID of the process as input and returns the addresses of the first element of 2d array. 
+// Also stroes the number of rows in AddressesRows and address of the first elemet in AddressesList,
+
 #include "ProcessManager.h"
 using namespace std;
 int** ProcessManager :: getAddresses (long unsigned int pID) {
@@ -44,6 +47,8 @@ int** ProcessManager :: getAddresses (long unsigned int pID) {
     	
     }
     fclose(ptr);
+    ProcessManager :: Addresses = AddressesList;
+    ProcessManager :: AddressesRows = i;
     return AddressesList;
   
 }

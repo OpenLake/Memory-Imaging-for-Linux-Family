@@ -38,6 +38,8 @@ public:
 	long contentLongHex;
 	char contentChar;
 	string contentString;
+	int ** Addresses ; 
+	int AddressesRows ;
 	ProcessManager(long id)
 	{
 		pID = id;
