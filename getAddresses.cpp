@@ -19,8 +19,7 @@ int** ProcessManager :: getAddresses (long unsigned int pID) {
 	int i =0;
 	int count =0;
 	
-	int** AddressesList ;
-	AddressesList = new int*[30];
+	int** AddressesList = (int**)malloc(30*sizeof(int*));
 	for(int i =0;i<30;i++) {
 		AddressesList[i] = new int[2];
 	}
@@ -45,8 +44,10 @@ int** ProcessManager :: getAddresses (long unsigned int pID) {
     	
     }
     fclose(ptr);
+    AddressesList = (int**)realloc(AddressesList, (i+1)*sizeof(int*));
+    // cout << "i is" << i+1 << endl;
     ProcessManager :: Addresses = AddressesList;
-    ProcessManager :: AddressesRows = i;
+    ProcessManager :: AddressesRows = i+1;
     return AddressesList;
   
 }

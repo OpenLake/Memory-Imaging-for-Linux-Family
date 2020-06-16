@@ -108,8 +108,10 @@ int main()
 	char test[16] = "565288975001";
 	int **add;
 	add = P.getAddresses(id);
-
-	P.identifierFunction(id,test, add);
-	cout <<  P.Addresses  << endl << add <<endl;
+	int size ;
+	size = P.AddressesRows;
+	// cout << size <<endl;
+	P.identifierFunction(id,test, add, size);
+	// cout <<  P.Addresses  << endl << add <<endl;
 	return 0;
 }
