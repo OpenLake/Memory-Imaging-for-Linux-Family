@@ -19,7 +19,7 @@ int** ProcessManager :: getAddresses (long unsigned int pID) {
 	int i =0;
 	int count =0;
 	
-	int** AddressesList = (int**)malloc(30*sizeof(int*));
+	int** AddressesList = (int**)malloc(100*sizeof(int*));
 	for(int i =0;i<30;i++) {
 		AddressesList[i] = new int[2];
 	}

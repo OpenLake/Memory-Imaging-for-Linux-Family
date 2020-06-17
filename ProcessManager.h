@@ -1,4 +1,5 @@
 #define _DEFAULT_SOURCE
+#define _GLIBCXX_USE_CXX11_ABI 0
 
 #include<iostream>
 #include<string>
@@ -21,11 +22,6 @@
 
 using namespace std;
 typedef unsigned int uint;
-
-template <typename T>
-string ToHex(T i);
-
-
 
 class ProcessManager
 {	
@@ -55,6 +51,6 @@ public:
 	char* Read();
 	int** getAddresses(long unsigned int pid);
 	void getContent(char * Module );
-	void identifierFunction(long unsigned int pid, int testval, int** add, int size) ;
+	void identifierFunction(long unsigned int pid, char* test, int** add, int size) ;
 };
 
