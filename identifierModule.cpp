@@ -2,8 +2,8 @@
 #include "ProcessManager.h"
 using namespace std;
 
-void ProcessManager :: identifierFunction(long unsigned int pid, int testval, int** add, int size) {
-		// int testval = (int)strtol(test, NULL,16);
+void ProcessManager :: identifierFunction(long unsigned int pid, char* test, int** add, int size) {
+		int testval = (int)strtol(test, NULL,16);
 		int i =0;
 		int count=0;
 		// cout <<size <<endl;
