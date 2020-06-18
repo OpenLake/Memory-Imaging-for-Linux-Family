@@ -30,10 +30,10 @@ void ProcessManager :: getAddresses () {
 	while(fgets(line, sizeof(line), ptr)){
 		i++;
 		stringstream ss (line);
-		char add[35];
+		char add[span*2 +2];
 		ss >> add;
 		char *token = strtok(add, "-");
-		char addresses[2][35];
+		char addresses[2][span+1];
 		int j=0;
 		while(token !=NULL ){
 			strcpy(addresses[j], token);

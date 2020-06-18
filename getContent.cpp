@@ -1,41 +1,6 @@
 #include "ProcessManager.h"
 using namespace std;
 
-template <typename T>
-string ToHex(T i)
-{
-	stringstream stream;
-	stream << hex << i;
-	string s = stream.str();
-	//cout << s << endl;
-	if (s.length() < 2)
-	{
-		s = "0" + s;
-	}
-	if (s.length() > 2)
-	{
-		return "";
-	}
-	stream.str("");
-	return s;
-}
-
-char* ProcessManager::Read()
-{
-	struct iovec* local = new struct iovec;
-	char* op = new char[span];
-	local->iov_base = op;
-	local->iov_len = span;
-	struct iovec* remote = new struct iovec;
-	remote->iov_base = (void*)BaseAddress;
-	remote->iov_len = span;
-	ssize_t nread;
-	nread = process_vm_readv(pID, local, 1, remote, 1, 0);
-	if (nread != span)
-		cout << "Full Data Read failed due to unaccessibility of a memory location\n";
-	return op;
-}
-
 void ProcessManager::getContent(char * Module)
 {	
 	char* op = Read();
