@@ -97,6 +97,7 @@ int main()
 	cout << "Enter PID of the Process\n";
 	cin >> id;
 	ProcessManager P(id);
+	P.span = 16;
 	// P.FindBaseAddress("[stack]");
 	// P.PrintContent();
 	// cout << "Enter BaseAddress\n";
@@ -105,12 +106,13 @@ int main()
 
 	// P.getContent("int");
 
-	char test[16] = "7ffe9179a001";
-	int **add;
-	add = P.getAddresses(id);
-	int size ;
-	size = P.AddressesRows;
-	// cout << size <<endl;
+	char test[16] = "7f4644c29001";
+	// int **add;
+	P.getAddresses();
+	// int size ;
+	// // size = P.AddressesRows;
+	// cout << "span:" << P.span << endl;
+	// cout << "Addresses size: "<< P.AddressesRows <<endl;
 	P.identifierFunction(test);
 	// cout <<  P.Addresses  << endl << add <<endl;
 	return 0;

@@ -3,7 +3,7 @@
 
 #include "ProcessManager.h"
 using namespace std;
-int** ProcessManager :: getAddresses (long unsigned int pID) {
+void ProcessManager :: getAddresses () {
 	int fd = 0;
 	char FileLocation[1024];
 	char ChBaseAddress[1024];
@@ -15,15 +15,16 @@ int** ProcessManager :: getAddresses (long unsigned int pID) {
 		exit (1);
 	}
 	ptr = fopen (FileLocation, "r");
-	char line [1000];
+	char line [200];
 	int i =0;
 	int count =0;
 	while (fgets(line, sizeof(line), ptr)){
 		count++;
 	}
 	 ProcessManager :: AddressesRows = count+1;
-	int** AddressesList = new int*[count];
-	for(int i =0;i<count;i++) {
+	rewind(ptr);
+	int** AddressesList = new int*[count+1];
+	for(int i =0;i<count+1;i++) {
 		AddressesList[i] = new int[2];
 	}
 	while(fgets(line, sizeof(line), ptr)){
@@ -49,6 +50,6 @@ int** ProcessManager :: getAddresses (long unsigned int pID) {
     // cout << "i is" << i+1 << endl;
     ProcessManager :: Addresses = AddressesList;
    
-    return AddressesList;
+
   
 }

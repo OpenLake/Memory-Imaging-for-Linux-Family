@@ -49,7 +49,7 @@ public:
 	void FindBaseAddress(char* Module = NULL);
 	void PrintContent();
 	char* Read();
-	int** getAddresses(long unsigned int pid);
+	void getAddresses();
 	void getContent(char * Module );
 	void identifierFunction(char* test) ;
 };
