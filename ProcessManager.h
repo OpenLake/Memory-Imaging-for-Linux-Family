@@ -51,6 +51,6 @@ public:
 	char* Read();
 	int** getAddresses(long unsigned int pid);
 	void getContent(char * Module );
-	void identifierFunction(long unsigned int pid, char* test, int** add, int size) ;
+	void identifierFunction(char* test) ;
 };
 

@@ -105,13 +105,13 @@ int main()
 
 	// P.getContent("int");
 
-	char test[16] = "565288975001";
+	char test[16] = "7ffe9179a001";
 	int **add;
 	add = P.getAddresses(id);
 	int size ;
 	size = P.AddressesRows;
 	// cout << size <<endl;
-	P.identifierFunction(id,test, add, size);
+	P.identifierFunction(test);
 	// cout <<  P.Addresses  << endl << add <<endl;
 	return 0;
 }
