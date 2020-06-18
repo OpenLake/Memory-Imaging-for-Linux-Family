@@ -8,20 +8,17 @@ void ProcessManager :: identifierFunction(char* test) {
 		int count=0;
 		// cout <<size <<endl;
 		while( i < AddressesRows ){
-    	// if(*(*(add+i)+0) < *(*(add+i)+1)) {	
+ 
 			if( *(*(Addresses+i)+0) < testval && testval < *(*(Addresses+i)+1)) {
 				cout << "Its there! \n";
 				printf("Address Stored: %p \n", test);
 				count +=1;
 			}
-		// }
-		// else {
 			if( *(*(Addresses+i)+1) < testval && testval < *(*(Addresses+i)+0)) {
 				cout << "Its there \n";
 				printf("Address Stored: %p \n", test);
 				count+=1;
 			}
-		// }
 		i++;
 	}
 	if(count==0) {

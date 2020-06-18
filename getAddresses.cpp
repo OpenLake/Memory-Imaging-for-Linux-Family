@@ -18,12 +18,14 @@ int** ProcessManager :: getAddresses (long unsigned int pID) {
 	char line [1000];
 	int i =0;
 	int count =0;
-	
-	int** AddressesList = (int**)malloc(100*sizeof(int*));
-	for(int i =0;i<30;i++) {
+	while (fgets(line, sizeof(line), ptr)){
+		count++;
+	}
+	 ProcessManager :: AddressesRows = count+1;
+	int** AddressesList = new int*[count];
+	for(int i =0;i<count;i++) {
 		AddressesList[i] = new int[2];
 	}
-	i=0;
 	while(fgets(line, sizeof(line), ptr)){
 		i++;
 		stringstream ss (line);
@@ -44,10 +46,9 @@ int** ProcessManager :: getAddresses (long unsigned int pID) {
     	
     }
     fclose(ptr);
-    AddressesList = (int**)realloc(AddressesList, (i+1)*sizeof(int*));
     // cout << "i is" << i+1 << endl;
     ProcessManager :: Addresses = AddressesList;
-    ProcessManager :: AddressesRows = i+1;
+   
     return AddressesList;
   
 }
