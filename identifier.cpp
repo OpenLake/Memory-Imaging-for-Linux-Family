@@ -11,12 +11,14 @@ void ProcessManager :: identifierFunction(char* test) {
  
 			if( *(*(Addresses+i)+0) < testval && testval < *(*(Addresses+i)+1)) {
 				cout << "Its there! \n";
-				printf("Address Stored: %p \n", test);
+				int* address = (int*)testval;
+				printf("Address Stored: %p \n", address);
 				count +=1;
 			}
 			if( *(*(Addresses+i)+1) < testval && testval < *(*(Addresses+i)+0)) {
 				cout << "Its there \n";
-				printf("Address Stored: %p \n", test);
+				int* address = (int*)testval;
+				printf("Address Stored: %p \n", address);
 				count+=1;
 			}
 		i++;
