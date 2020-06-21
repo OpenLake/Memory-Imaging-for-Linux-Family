@@ -1,7 +1,14 @@
 #include"ProcessManager.h"
 
 using namespace std;
-
+///Debugging Utility 1
+///
+///This function accesses maps file of a given process ID (pID) and fetches the first memory address of the given *Module*. This memory address gets stored in BaseAddress of class Processmanager.
+/// #span of ProcessManager is also initialized in this function which is fetched by subraction of ending memory address (as given in maps file) with BaseAddress.
+///Overall this function is useful in generating ProcessManager spanning a single line of maps file if given the appropriate module.
+/// @param Module is a string containing information of the line (*function searches for string pattern in maps file*) of which ProcessManager is to be generated. 
+/// @note If @param Module is given a permission like *r-xp*, it will generate ProcessManager of the first line with the given permission.  
+///@note Default value of @param Module is "r-xp".
 void ProcessManager::FindBaseAddress(char* Module)
 {
 	int fd = 0;
@@ -70,7 +77,10 @@ void ProcessManager::FindBaseAddress(char* Module)
 	cout <<"Span = "<<span << endl;//======================================================================================
 	free(FileBuffer);
 }
-
+///Debugging Utility 2
+///
+///This functions prints out all the content stored in memory location BaseAddress and its subsequent memory addresses (till memory location #BaseAddress + #span) in hex.
+///@note Format of Print is: "Memory Location(in Hex): Content(in Hex)"
 void ProcessManager::PrintContent()
 {
 	struct iovec *local = new struct iovec;
