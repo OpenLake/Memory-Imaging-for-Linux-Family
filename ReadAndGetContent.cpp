@@ -35,7 +35,7 @@ char* ProcessManager::Read()
 	ssize_t nread;
 	nread = process_vm_readv(pID, local, 1, remote, 1, 0);
 	if (nread != span)
-		cout << "Full Data Read failed due to unaccessibility of a memory location\n";
+		cout << BaseAddress << "Full Data Read failed due to unaccessibility of a memory location\n";
 	return op;
 }
 ///Function to store meaningful data in ProcessManager

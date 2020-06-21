@@ -18,6 +18,7 @@
 #include<iomanip>
 #include<sstream>
 #include<cstdlib>
+#include<vector>
 
 
 using namespace std;
@@ -76,5 +77,8 @@ public:
 	void PrintContent();
 	char* Read();
 	void getContent(char * Module = NULL);
+	vector<long> scanProcess(int target);
+	vector<long> scanProcess(long target);
+	vector<long> scanProcess(string target);
+	vector<long> scanProcess(char target);
 };
-

@@ -101,17 +101,17 @@ void ProcessManager::PrintContent()
 	free(op);
 }
 
-int main()
-{
-	long id,BA;
-	cout << "Enter PID of the Process\n";
-	cin >> id;
-	/*ProcessManager P(id);
-	P.FindBaseAddress("[stack]");
-	P.PrintContent();*/
-	cout << "Enter BaseAddress\n";
-	cin >> BA;
-	ProcessManager P(id,BA,4);
-	P.getContent("int");
-	return 0;
-}
+// int main()
+// {
+// 	long id,BA;
+// 	cout << "Enter PID of the Process\n";
+// 	cin >> id;
+// 	/*ProcessManager P(id);
+// 	P.FindBaseAddress("[stack]");
+// 	P.PrintContent();*/
+// 	cout << "Enter BaseAddress\n";
+// 	cin >> BA;
+// 	ProcessManager P(id,BA,4);
+// 	P.getContent("int");
+// 	return 0;
+// }
