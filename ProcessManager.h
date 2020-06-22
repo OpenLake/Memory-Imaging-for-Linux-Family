@@ -36,6 +36,8 @@ public:
 	string contentString;
 	int ** Addresses ; 
 	int AddressesRows ;
+	template <typename T>
+	string ToHex(T i);
 	ProcessManager(long id)
 	{
 		pID = id;
