@@ -78,7 +78,7 @@ vector<long> ProcessManager::scanProcess(int target){
 		// cout << ranges.at(i).first<<"-"<<ranges.at(i).second<<endl;
 		for(long j = ranges.at(i).first; j <= ranges.at(i).second - 4; j++){
 			this->BaseAddress = j;
-			getContent("int");
+			this->getContent("int");
 			// cout << contentInt << endl;
 			if(this->contentInt == target){
 				addresses.push_back(j);
@@ -112,7 +112,7 @@ vector<long> ProcessManager::scanProcess(long target){
 		// cout << ranges.at(i).first<<"-"<<ranges.at(i).second<<endl;
 		for(long j = ranges.at(i).first; j <= ranges.at(i).second - 8; j++){
 			this->BaseAddress = j;
-			getContent("long");
+			this->getContent("long");
 			// cout << contentInt << endl;
 			if(this->contentLongInt == target){
 				addresses.push_back(j);
@@ -146,7 +146,7 @@ vector<long> ProcessManager::scanProcess(string target){
 		// cout << ranges.at(i).first<<"-"<<ranges.at(i).second<<endl;
 		for(long j = ranges.at(i).first; j <= ranges.at(i).second - sizeof(target); j++){
 			this->BaseAddress = j;
-			getContent("string");
+			this->getContent("string");
 			// cout << contentInt << endl;
 			if(this->contentString == target){
 				addresses.push_back(j);
@@ -180,7 +180,7 @@ vector<long> ProcessManager::scanProcess(char target){
 		// cout << ranges.at(i).first<<"-"<<ranges.at(i).second<<endl;
 		for(long j = ranges.at(i).first; j < ranges.at(i).second; j++){
 			this->BaseAddress = j;
-			getContent("char");
+			this->getContent("char");
 			// cout << contentInt << endl;
 			if(this->contentChar == target){
 				addresses.push_back(j);

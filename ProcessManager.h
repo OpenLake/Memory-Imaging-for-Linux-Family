@@ -81,4 +81,13 @@ public:
 	void PrintContent();
 	char* Read();
 	void getContent(char * Module = NULL);
+	vector<long> scanProcess(int target);
+	vector<long> scanProcess(long target);
+	vector<long> scanProcess(string target);
+	vector<long> scanProcess(char target);
+	vector<long> scanProcess(vector<long> addresses, int target);
+	vector<long> scanProcess(vector<long> addresses, long target);
+	vector<long> scanProcess(vector<long> addresses, string target);
+	vector<long> scanProcess(vector<long> addresses, char target);
+
 };
