@@ -58,6 +58,10 @@ public:
 	///Creates class ProcessManager with only process ID initialized. 
 	///
 	/// @param id : PID of the process in which we are interested.
+	int ** Addresses ; 
+	int AddressesRows ;
+	template <typename T>
+	string ToHex(T i);
 	ProcessManager(long id)
 	{
 		pID = id;
@@ -85,4 +89,5 @@ public:
 	vector<long> scanProcess(vector<long> addresses, long target);
 	vector<long> scanProcess(vector<long> addresses, string target);
 	vector<long> scanProcess(vector<long> addresses, char target);
+
 };
