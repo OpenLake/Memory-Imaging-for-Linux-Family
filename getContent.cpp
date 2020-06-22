@@ -1,6 +1,10 @@
 #include "ProcessManager.h"
 using namespace std;
 
+///Function to store meaningful data in ProcessManager
+///
+///This function takes memory address-wise data (via character array returned by Read()) and puts it together in a meaningful format like int, long int, address, char or string. This meaningful data gets stored in #contentInt/ #contentLongHex/ #contentString/ #contentChar of its ProcessManager
+/// @param Module specifies the form in which data is to be organized in order to deem it meaningful. Module is a string which can take "int", "string", "long int", "address", "char" or "string" as a valid argument.
 void ProcessManager::getContent(char * Module)
 {	
 	char* op = Read();
@@ -59,4 +63,3 @@ void ProcessManager::getContent(char * Module)
 		cout<<contentString<<endl;//Comment Line When Not Debugging	
 	}
 }
-

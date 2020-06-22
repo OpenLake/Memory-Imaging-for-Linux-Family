@@ -2,7 +2,10 @@
 
 using namespace std;
 
-
+///Debugging Utility 2
+///
+///This functions prints out all the content stored in memory location BaseAddress and its subsequent memory addresses (till memory location #BaseAddress + #span) in hex.
+///@note Format of Print is: "Memory Location(in Hex): Content(in Hex)"
 void ProcessManager::PrintContent()
 {
 	struct iovec *local = new struct iovec;
@@ -22,4 +25,3 @@ void ProcessManager::PrintContent()
 		cout << "Full Data Read failed due to unaccessibility of a memory location\n";
 	free(op);
 }
-
