@@ -7,15 +7,21 @@
 
 using namespace std;
 
-/// Helper function for scanProcesses()
+/// Scanning Utility from addresses in Maps file
 ///
-/// Takes a maps file and returns a vector of pairs 
-/// having the beginning and ending addresses of readable
-/// memory locations.
+/// Returns a vector of readable addresses for a
+/// process from its maps file.
 ///
-/// @param fileBuffer the maps file for a process
-/// @returns a vector pairs
-vector<pair<long, long>> getRanges(char *fileBuffer){
+/// @returns vector of addresses
+vector<long> ProcessManager::scanProcess(){
+	int fd = 0;
+	char fileLocation[1024];
+	sprintf(fileLocation,"/proc/%lu/maps",this->pID);
+	assert((fd=open(fileLocation,O_RDONLY)) >= 0);
+	char *fileBuffer = new char[100000];
+	assert(fileBuffer != NULL);
+    memset(fileBuffer, 0, 100000);
+	for (int i = 0; read(fd, fileBuffer + i, 1) > 0; i++);
 	vector<pair<long, long>> ranges;
 	char *p;
 	char *m = fileBuffer;
@@ -52,10 +58,18 @@ vector<pair<long, long>> getRanges(char *fileBuffer){
 		ranges.push_back(range);
 		m = p + 1;
 	}
-	return ranges;
+	vector<long> addresses;
+	for(long i = 0; i<ranges.size(); i++){
+		// cout << ranges.at(i).first<<"-"<<ranges.at(i).second<<endl;
+		for(long j = ranges.at(i).first; j < ranges.at(i).second; j++){
+			addresses.push_back(j);
+		}
+	}
+	cout << addresses.size() << " addresses found";
+	return addresses;
 }
 
-/// Scanning Utility from address in Maps file
+/// Scanning Utility from addresses in Maps file
 ///
 /// Takes in a target int value and matches it against all
 /// readable memory locations' data.
@@ -63,30 +77,17 @@ vector<pair<long, long>> getRanges(char *fileBuffer){
 /// @param target the int value to match
 /// @returns vector of addresses
 vector<long> ProcessManager::scanProcess(int target){
-    int fd = 0;
-	char fileLocation[1024];
-	char* p = NULL;
-	sprintf(fileLocation,"/proc/%lu/maps",pID);
-	assert((fd=open(fileLocation,O_RDONLY)) >= 0);
-	char *fileBuffer = new char[100000];
-	assert(fileBuffer != NULL);
-    memset(fileBuffer, 0, 100000);
-	for (int i = 0; read(fd, fileBuffer + i, 1) > 0; i++);
-	vector<pair<long, long>> ranges = getRanges(fileBuffer);
-	vector<long> addresses;
-	for(long i = 0; i<ranges.size(); i++){
-		// cout << ranges.at(i).first<<"-"<<ranges.at(i).second<<endl;
-		for(long j = ranges.at(i).first; j <= ranges.at(i).second - 4; j++){
-			this->BaseAddress = j;
-			this->getContent("int");
-			// cout << contentInt << endl;
-			if(this->contentInt == target){
-				addresses.push_back(j);
-			}
+	vector<long> matches;
+	vector<long> addresses = this->scanProcess();
+	for(long i = 0; i < addresses.size(); i++){
+		this->BaseAddress = addresses.at(i);
+		this->getContent("int");
+		if(this->contentInt == target){
+			matches.push_back(addresses.at(i));
 		}
 	}
-	cout << addresses.size() << " addresses matched" << endl;
-	return addresses;
+	cout << matches.size() << " addresses matched" << endl;
+	return matches;
 }
 
 /// Scanning Utility from address in Maps file
@@ -97,30 +98,17 @@ vector<long> ProcessManager::scanProcess(int target){
 /// @param target the long int value to match
 /// @returns vector of addresses
 vector<long> ProcessManager::scanProcess(long target){
-    int fd = 0;
-	char fileLocation[1024];
-	char* p = NULL;
-	sprintf(fileLocation,"/proc/%lu/maps",pID);
-	assert((fd=open(fileLocation,O_RDONLY)) >= 0);
-	char *fileBuffer = new char[100000];
-	assert(fileBuffer != NULL);
-    memset(fileBuffer, 0, 100000);
-	for (int i = 0; read(fd, fileBuffer + i, 1) > 0; i++);
-	vector<pair<long, long>> ranges = getRanges(fileBuffer);
-	vector<long> addresses;
-	for(long i = 0; i<ranges.size(); i++){
-		// cout << ranges.at(i).first<<"-"<<ranges.at(i).second<<endl;
-		for(long j = ranges.at(i).first; j <= ranges.at(i).second - 8; j++){
-			this->BaseAddress = j;
-			this->getContent("long");
-			// cout << contentInt << endl;
-			if(this->contentLongInt == target){
-				addresses.push_back(j);
-			}
+    vector<long> matches;
+	vector<long> addresses = this->scanProcess();
+	for(long i = 0; i < addresses.size(); i++){
+		this->BaseAddress = addresses.at(i);
+		this->getContent("long");
+		if(this->contentLongInt == target){
+			matches.push_back(addresses.at(i));
 		}
 	}
-	cout << addresses.size() << " addresses matched" << endl;
-	return addresses;
+	cout << matches.size() << " addresses matched" << endl;
+	return matches;
 }
 
 /// Scanning Utility from address in Maps file
@@ -131,30 +119,17 @@ vector<long> ProcessManager::scanProcess(long target){
 /// @param target the string value to match
 /// @returns vector of addresses
 vector<long> ProcessManager::scanProcess(string target){
-    int fd = 0;
-	char fileLocation[1024];
-	char* p = NULL;
-	sprintf(fileLocation,"/proc/%lu/maps",pID);
-	assert((fd=open(fileLocation,O_RDONLY)) >= 0);
-	char *fileBuffer = new char[100000];
-	assert(fileBuffer != NULL);
-    memset(fileBuffer, 0, 100000);
-	for (int i = 0; read(fd, fileBuffer + i, 1) > 0; i++);
-	vector<pair<long, long>> ranges = getRanges(fileBuffer);
-	vector<long> addresses;
-	for(long i = 0; i<ranges.size(); i++){
-		// cout << ranges.at(i).first<<"-"<<ranges.at(i).second<<endl;
-		for(long j = ranges.at(i).first; j <= ranges.at(i).second - sizeof(target); j++){
-			this->BaseAddress = j;
-			this->getContent("string");
-			// cout << contentInt << endl;
-			if(this->contentString == target){
-				addresses.push_back(j);
-			}
+    vector<long> matches;
+	vector<long> addresses = this->scanProcess();
+	for(long i = 0; i < addresses.size(); i++){
+		this->BaseAddress = addresses.at(i);
+		this->getContent("string");
+		if(this->contentString == target){
+			matches.push_back(addresses.at(i));
 		}
 	}
-	cout << addresses.size() << " addresses matched" << endl;
-	return addresses;
+	cout << matches.size() << " addresses matched" << endl;
+	return matches;
 }
 
 /// Scanning Utility from address in Maps file
@@ -165,30 +140,17 @@ vector<long> ProcessManager::scanProcess(string target){
 /// @param target the char value to match
 /// @returns vector of addresses
 vector<long> ProcessManager::scanProcess(char target){
-    int fd = 0;
-	char fileLocation[1024];
-	char* p = NULL;
-	sprintf(fileLocation,"/proc/%lu/maps",pID);
-	assert((fd=open(fileLocation,O_RDONLY)) >= 0);
-	char *fileBuffer = new char[100000];
-	assert(fileBuffer != NULL);
-    memset(fileBuffer, 0, 100000);
-	for (int i = 0; read(fd, fileBuffer + i, 1) > 0; i++);
-	vector<pair<long, long>> ranges = getRanges(fileBuffer);
-	vector<long> addresses;
-	for(long i = 0; i<ranges.size(); i++){
-		// cout << ranges.at(i).first<<"-"<<ranges.at(i).second<<endl;
-		for(long j = ranges.at(i).first; j < ranges.at(i).second; j++){
-			this->BaseAddress = j;
-			this->getContent("char");
-			// cout << contentInt << endl;
-			if(this->contentChar == target){
-				addresses.push_back(j);
-			}
+    vector<long> matches;
+	vector<long> addresses = this->scanProcess();
+	for(long i = 0; i < addresses.size(); i++){
+		this->BaseAddress = addresses.at(i);
+		this->getContent("char");
+		if(this->contentChar == target){
+			matches.push_back(addresses.at(i));
 		}
 	}
-	cout << addresses.size() << " addresses matched" << endl;
-	return addresses;
+	cout << matches.size() << " addresses matched" << endl;
+	return matches;
 }
 
 int main(){
