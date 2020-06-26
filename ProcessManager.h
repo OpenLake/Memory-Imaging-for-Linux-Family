@@ -60,8 +60,8 @@ public:
 	/// @param id : PID of the process in which we are interested.
 	int ** Addresses ; 
 	int AddressesRows ;
-	template <typename T>
-	string ToHex(T i);
+	// template <typename T>
+	// string ToHex(T i);
 	ProcessManager(long id)
 	{
 		pID = id;
@@ -81,6 +81,8 @@ public:
 	void PrintContent();
 	char* Read();
 	void getContent(char * Module = NULL);
+	void getAddresses();
+	void identifierFunction(char* test);
 	vector<long> scanProcess();
 	vector<long> scanProcess(int target);
 	vector<long> scanProcess(long target);
