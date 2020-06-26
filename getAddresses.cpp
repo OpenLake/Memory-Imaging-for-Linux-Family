@@ -1,5 +1,6 @@
-// Takes pID of the process as input and returns the addresses of the first element of 2d array. 
-// Also stroes the number of rows in AddressesRows and address of the first elemet in AddressesList,
+/// This function stores the address of a 2D array containing the base and end addresses of each continuous 
+///memory in maps file
+/// Also stores the number of rows in maps files in AddressesRows and address of the first elemet in AddressesList,
 
 #include "ProcessManager.h"
 using namespace std;
