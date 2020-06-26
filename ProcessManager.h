@@ -55,13 +55,15 @@ public:
 	///Store the data read from the memory addresses akin to how the data is stored in variables in a standard programming language.
 	///stores the string interpretation of data
 	string contentString;
+	/// stores the address of 2D array consisting of start and end addresses of each continuous memory in maps file.
+	int ** Addresses ; 
+	/// stores number of rows in maps file.
+	int AddressesRows ;
 	///Creates class ProcessManager with only process ID initialized. 
 	///
 	/// @param id : PID of the process in which we are interested.
-	int ** Addresses ; 
-	int AddressesRows ;
-	template <typename T>
-	string ToHex(T i);
+	// template <typename T>
+	// string ToHex(T i);
 	ProcessManager(long id)
 	{
 		pID = id;
@@ -81,6 +83,8 @@ public:
 	void PrintContent();
 	char* Read();
 	void getContent(char * Module = NULL);
+	void getAddresses();
+	void identifierFunction(char* test);
 	vector<long> scanProcess();
 	vector<long> scanProcess(int target);
 	vector<long> scanProcess(long target);

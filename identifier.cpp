@@ -1,4 +1,4 @@
-// Takes pID, testval(int) and addresses list as input and returns the address stored if  testval is a pointer.
+/// Takes @param test (char*) and prints the address stored if @param test is a pointer.
 #include "ProcessManager.h"
 using namespace std;
 

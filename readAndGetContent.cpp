@@ -1,6 +1,43 @@
 #include "ProcessManager.h"
 using namespace std;
-
+///Internal Function to generate 2 digit hex string from a given int/other value 
+template <typename T>
+string ToHex(T i)
+{
+	stringstream stream;
+	stream << hex << i;
+	string s = stream.str();
+	//cout << s << endl;
+	if (s.length() < 2)
+	{
+		s = "0" + s;
+	}
+	if (s.length() > 2)
+	{
+		return "";
+	}
+	stream.str("");
+	return s;
+}
+///Function to read memory addresses signified by ProcessManager individually.
+///
+///This functions reads every memory address signified by ProcessManager and stores it in a character array which it returns.
+/// @note by "every memory address signified by ProcessManager" we mean memory addresses from #BaseAddress to #BaseAddress + #span 
+char* ProcessManager::Read()
+{
+	struct iovec* local = new struct iovec;
+	char* op = new char[span];
+	local->iov_base = op;
+	local->iov_len = span;
+	struct iovec* remote = new struct iovec;
+	remote->iov_base = (void*)BaseAddress;
+	remote->iov_len = span;
+	ssize_t nread;
+	nread = process_vm_readv(pID, local, 1, remote, 1, 0);
+	if (nread != span)
+		cout << "Full Data Read failed due to unaccessibility of a memory location\n";
+	return op;
+}
 ///Function to store meaningful data in ProcessManager
 ///
 ///This function takes memory address-wise data (via character array returned by Read()) and puts it together in a meaningful format like int, long int, address, char or string. This meaningful data gets stored in #contentInt/ #contentLongHex/ #contentString/ #contentChar of its ProcessManager
@@ -63,3 +100,6 @@ void ProcessManager::getContent(char * Module)
 		cout<<contentString<<endl;//Comment Line When Not Debugging	
 	}
 }
+
+
+
