@@ -1,8 +1,5 @@
 #include "ProcessManager.h"
 
-#include <vector>
-#include <utility>
-
 using namespace std;
 
 /// Scanning Utility from addresses in vector
@@ -40,7 +37,7 @@ vector<long> ProcessManager::scanProcess(vector <long> addresses, long target){
     vector<long> matches;
     for(long i=0; i<addresses.size(); i++){
         this->BaseAddress = addresses.at(i);
-        this->getContent("long");
+        this->getContent("long int");
         if(this->contentLongInt == target){
             matches.push_back(addresses.at(i));
         }

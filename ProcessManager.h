@@ -18,7 +18,9 @@
 #include<iomanip>
 #include<sstream>
 #include<cstdlib>
+#include<utility>
 #include<vector>
+#include<unordered_map>
 
 
 using namespace std;
@@ -56,6 +58,11 @@ public:
 	int ** Addresses ; 
 	/// stores number of rows in maps file.
 	int AddressesRows ;
+	/// utility for storing pointers in the mapping
+	struct pointerNode{
+		long address;
+		struct pointerNode * next; 
+	};
 	///Creates class ProcessManager with only process ID initialized. 
 	///
 	/// @param id : PID of the process in which we are interested.
@@ -81,7 +88,8 @@ public:
 	char* Read();
 	void getContent(string Module);
 	void getAddresses();
-	void identifierFunction(char* test);
+	bool isAddress(long testval);
+	unordered_map<long, ProcessManager::pointerNode*> getPointerMap(vector<long> addresses);
 	vector<long> scanProcess();
 	vector<long> scanProcess(int target);
 	vector<long> scanProcess(long target);
