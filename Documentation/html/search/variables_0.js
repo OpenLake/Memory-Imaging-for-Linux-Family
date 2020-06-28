@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['baseaddress_35',['BaseAddress',['../class_process_manager.html#abce2ed7ca1f5a6f66c984619e67bb719',1,'ProcessManager']]]
+  ['addresses_52',['Addresses',['../class_process_manager.html#ab8c71ee22c9948a16f830fe2602ca4be',1,'ProcessManager']]],
+  ['addressesrows_53',['AddressesRows',['../class_process_manager.html#a305ed4423196e2067079d7fae559a0a3',1,'ProcessManager']]]
 ];
