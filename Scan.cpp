@@ -102,7 +102,7 @@ vector<long> ProcessManager::scanProcess(long target){
 	vector<long> addresses = this->scanProcess();
 	for(long i = 0; i < addresses.size(); i++){
 		this->BaseAddress = addresses.at(i);
-		this->getContent("long");
+		this->getContent("long int");
 		if(this->contentLongInt == target){
 			matches.push_back(addresses.at(i));
 		}
@@ -153,11 +153,11 @@ vector<long> ProcessManager::scanProcess(char target){
 	return matches;
 }
 
-int main(){
+/*int main(){
 	long id,BA;
 	cout << "Enter PID of the Process\n";
 	cin >> id;
 	ProcessManager P(id,0,4);
 	P.scanProcess(0);
 	return 0;
-}
+}*/
