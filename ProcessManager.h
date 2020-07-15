@@ -47,9 +47,6 @@ public:
 	///stores the int interpretation of data
 	long contentLongInt;
 	///Store the data read from the memory addresses akin to how the data is stored in variables in a standard programming language.
-	///stores long int/memory address (*which in turn will make the BaseAddress as a pointer to this memory address*)
-	//long contentLongHex;
-	///Store the data read from the memory addresses akin to how the data is stored in variables in a standard programming language.
 	///stores the char interpretation of data
 	char contentChar;
 	///Store the data read from the memory addresses akin to how the data is stored in variables in a standard programming language.
