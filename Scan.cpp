@@ -87,6 +87,7 @@ vector<long> ProcessManager::scanProcess(int target){
 		}
 	}
 	cout << matches.size() << " addresses matched" << endl;
+
 	return matches;
 }
 
@@ -153,11 +154,14 @@ vector<long> ProcessManager::scanProcess(char target){
 	return matches;
 }
 
-/*int main(){
+int main(){
 	long id,BA;
 	cout << "Enter PID of the Process\n";
 	cin >> id;
 	ProcessManager P(id,0,4);
-	P.scanProcess(0);
+	int t =1234;
+	vector <long> temp = P.scanProcess(t);
+	cout << temp[0] << endl;
+	// P.changeContent(temp[0], "Hey");
 	return 0;
-}*/
+}

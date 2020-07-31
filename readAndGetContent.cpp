@@ -57,7 +57,7 @@ void ProcessManager::getContent(string Module)
 			}
 			s = "0x" + s;
 			contentInt = stoi(s, NULL, 16);
-			cout<<dec<<contentInt<<endl; //Comment Line When Not Debugging
+			// cout<<dec<<contentInt<<endl; //Comment Line When Not Debugging
 		}	
 		else
 		{
@@ -76,8 +76,8 @@ void ProcessManager::getContent(string Module)
 			}
 			s = "0x" + s;
 			contentLongInt = stol(s, NULL, 16);
-			cout<<dec<<contentLongInt<<endl;//Comment Line When Not Debugging
-			cout <<hex<< contentLongInt << endl;//Comment Line When Not Debugging
+			// cout<<dec<<contentLongInt<<endl;//Comment Line When Not Debugging
+			// cout <<hex<< contentLongInt << endl;//Comment Line When Not Debugging
 		}	
 		else
 		{
@@ -88,7 +88,7 @@ void ProcessManager::getContent(string Module)
 		if(Module=="char")
 	{
 		contentChar=op[0];
-		cout<<contentChar<<endl;//Comment Line When Not Debugging	
+		// cout<<contentChar<<endl;//Comment Line When Not Debugging	
 	}
 		if(Module=="string")
 	{
@@ -98,7 +98,7 @@ void ProcessManager::getContent(string Module)
 			s = op[i] + s;
 		}
 		contentString=s;
-		cout<<contentString<<endl;//Comment Line When Not Debugging	
+		// cout<<contentString<<endl;//Comment Line When Not Debugging	
 	}
 }
 
