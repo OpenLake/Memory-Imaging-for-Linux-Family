@@ -7,6 +7,7 @@ string ToHex(T i)
 	stringstream stream;
 	stream << hex << i;
 	string s = stream.str();
+	string ch="";
 	//cout << s << endl;
 	if (s.length() < 2)
 	{
@@ -14,7 +15,9 @@ string ToHex(T i)
 	}
 	if (s.length() > 2)
 	{
-		return "";
+		ch=s.substr(s.length()-2,2);
+		stream.str("");
+		return ch;
 	}
 	stream.str("");
 	return s;
@@ -52,12 +55,12 @@ void ProcessManager::getContent(string Module)
 			string s="";
 			for(int i=0;i<4;i++)
 			{
-				int x =(int)op[i];
+				unsigned int x =(unsigned int)op[i];
 				s = ToHex(x)+s;
 			}
 			s = "0x" + s;
-			contentInt = stoi(s, NULL, 16);
-			// cout<<dec<<contentInt<<endl; //Comment Line When Not Debugging
+			contentInt = stoul(s, NULL, 16);
+			cout<<hex<<BaseAddress<<":"<<dec<<contentInt<<endl; //Comment Line When Not Debugging
 		}	
 		else
 		{
