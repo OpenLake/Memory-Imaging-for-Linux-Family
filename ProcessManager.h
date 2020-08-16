@@ -57,7 +57,7 @@ public:
 	/// stores number of rows in maps file.
 	int AddressesRows ;
 	/// indicates that we're trying to debug
-	bool debug;
+	bool debug = false ;
 	///Creates class ProcessManager with only process ID initialized. 
 	///
 	/// @param id : PID of the process in which we are interested.

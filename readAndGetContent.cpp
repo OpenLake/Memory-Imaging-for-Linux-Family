@@ -8,9 +8,9 @@ string ToHex(T i)
 	stream << hex << i;
 	string s = stream.str();
 	string ch="";
-	if (debug == true ){
-		cout << "To Hex: "<< s << endl;
-	}
+	// if (debug == true ){
+	// 	cout << "To Hex: "<< s << endl;
+	// }
 	if (s.length() < 2)
 	{
 		s = "0" + s;

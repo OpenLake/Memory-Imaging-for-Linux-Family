@@ -3,22 +3,29 @@ filesScanProcesses = Scan.cpp main.cpp
 filesGetBaseAddresses = MemoryScan.cpp main.cpp
 filesRead = readAndGetContent.cpp main.cpp
 filesGetContent = readAndGetContent.cpp main.cpp
-rebulildables = main 
+rebulildables = *.out 
 ALL = *.cpp
 
-main: 
-	@g++ $(ALL) -o main && ./main --debug
 intro: 
-	@echo "\nFuntionalities:\n \nisPointer \nscanProcesses \ngetBaseAddress \nread \getContent \nclean" 
+	@echo "\nFuntionalities:\n \nmain \nloop \ndebug \nisPointer \nscanProcesses \ngetBaseAddress \nread \getContent \nclean" 
+main: 
+	@g++ $(ALL) -o main.out && ./main.out 
+loop: 
+	# cd debugging/ 
+	g++ loop.cpp -o loop.out && ./loop.out
+loopPID:
+	ps aux | grep ./loop | grep -v grep
+debug: 
+	@g++ $(ALL) -o main.out && ./main.out --debug
 isPointer: $(filesIsPointer)
-	@g++ $(filesIsPointer) -o main && ./main
+	@g++ $(filesIsPointer) -o main.out && ./main.out
 scanProcesses: $(filesScanProcesses)
-	@g++ $(filesScanProcesses) -o main && ./main
+	@g++ $(filesScanProcesses) -o main.out && ./main.out
 getBaseAddress: $(filesGetBaseAddresses)
-	@g++ $(filesGetBaseAddresses) -o main && ./main
+	@g++ $(filesGetBaseAddresses) -o main.out && ./main.out
 read: $(filesRead)
-	@g++ $(filesRead) -o main && ./main 
+	@g++ $(filesRead) -o main.out && ./main.out 
 getContent: $(filesGetContent)
-	@g++ $(filesGetContent) -o main && ./main
+	@g++ $(filesGetContent) -o main.out && ./main.out
 clean: $(rebulildables)
 	@rm $(rebulildables)
