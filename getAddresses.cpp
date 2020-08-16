@@ -48,9 +48,8 @@ void ProcessManager :: getAddresses () {
     	
     }
     fclose(ptr);
-    // cout << "i is" << i+1 << endl;
+	if (debug ==true){
+    	cout << "No. of rows in maps file : " << i+1 << endl;
+	}
     ProcessManager :: Addresses = AddressesList;
-   
-
-  
 }

@@ -60,12 +60,16 @@ vector<long> ProcessManager::scanProcess(){
 	}
 	vector<long> addresses;
 	for(long i = 0; i<ranges.size(); i++){
-		// cout << ranges.at(i).first<<"-"<<ranges.at(i).second<<endl;
+		if (debug ==true){
+		cout << "Ranges"<< ranges.at(i).first<<"-"<<ranges.at(i).second<<endl;
+		}
 		for(long j = ranges.at(i).first; j < ranges.at(i).second; j++){
 			addresses.push_back(j);
 		}
 	}
-	cout << addresses.size() << " addresses found";
+	if (debug ==true){
+		cout << addresses.size() << " addresses found";
+	}
 	return addresses;
 }
 
@@ -86,7 +90,9 @@ vector<long> ProcessManager::scanProcess(int target){
 			matches.push_back(addresses.at(i));
 		}
 	}
-	cout << matches.size() << " addresses matched" << endl;
+	if (debug ==true){
+		cout << matches.size() << " addresses matched" << endl;
+	}
 	return matches;
 }
 
@@ -102,12 +108,14 @@ vector<long> ProcessManager::scanProcess(long target){
 	vector<long> addresses = this->scanProcess();
 	for(long i = 0; i < addresses.size(); i++){
 		this->BaseAddress = addresses.at(i);
-		this->getContent("long");
+		this->getContent("long int");
 		if(this->contentLongInt == target){
 			matches.push_back(addresses.at(i));
 		}
 	}
-	cout << matches.size() << " addresses matched" << endl;
+	if (debug ==true){
+		cout << matches.size() << " addresses matched" << endl;
+	}
 	return matches;
 }
 
@@ -128,7 +136,9 @@ vector<long> ProcessManager::scanProcess(string target){
 			matches.push_back(addresses.at(i));
 		}
 	}
-	cout << matches.size() << " addresses matched" << endl;
+	if (debug ==true){
+		cout << matches.size() << " addresses matched" << endl;
+	}
 	return matches;
 }
 
@@ -149,15 +159,17 @@ vector<long> ProcessManager::scanProcess(char target){
 			matches.push_back(addresses.at(i));
 		}
 	}
-	cout << matches.size() << " addresses matched" << endl;
+	if (debug ==true){
+		cout << matches.size() << " addresses matched" << endl;
+	}
 	return matches;
 }
 
-int main(){
+/*int main(){
 	long id,BA;
 	cout << "Enter PID of the Process\n";
 	cin >> id;
 	ProcessManager P(id,0,4);
 	P.scanProcess(0);
 	return 0;
-}
+}*/

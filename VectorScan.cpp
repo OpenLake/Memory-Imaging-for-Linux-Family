@@ -23,7 +23,9 @@ vector<long> ProcessManager::scanProcess(vector <long> addresses, int target){
             matches.push_back(addresses.at(i));
         }
     }
-    cout << matches.size() << " addresses matches" << endl;
+    if (debug ==true){
+        cout << matches.size() << " addresses matches" << endl;
+    }
     return matches;
 }
 
@@ -45,7 +47,9 @@ vector<long> ProcessManager::scanProcess(vector <long> addresses, long target){
             matches.push_back(addresses.at(i));
         }
     }
-    cout << matches.size() << " addresses matches" << endl;
+    if (debug ==true){
+        cout << matches.size() << " addresses matches" << endl;
+    }
     return matches;
 }
 
@@ -67,7 +71,9 @@ vector<long> ProcessManager::scanProcess(vector <long> addresses, char target){
             matches.push_back(addresses.at(i));
         }
     }
-    cout << matches.size() << " addresses matches" << endl;
+    if (debug ==true){
+        cout << matches.size() << " addresses matches" << endl;
+    }
     return matches;
 }
 
@@ -89,6 +95,8 @@ vector<long> ProcessManager::scanProcess(vector <long> addresses, string target)
             matches.push_back(addresses.at(i));
         }
     }
-    cout << matches.size() << " addresses matches" << endl;
+    if (debug ==true){
+        cout << matches.size() << " addresses matches" << endl;
+    }
     return matches;
 }

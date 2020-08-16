@@ -7,14 +7,19 @@ string ToHex(T i)
 	stringstream stream;
 	stream << hex << i;
 	string s = stream.str();
-	//cout << s << endl;
+	string ch="";
+	if (debug == true ){
+		cout << "To Hex: "<< s << endl;
+	}
 	if (s.length() < 2)
 	{
 		s = "0" + s;
 	}
 	if (s.length() > 2)
 	{
-		return "";
+		ch=s.substr(s.length()-2,2);
+		stream.str("");
+		return ch;
 	}
 	stream.str("");
 	return s;
@@ -42,7 +47,7 @@ char* ProcessManager::Read()
 ///
 ///This function takes memory address-wise data (via character array returned by Read()) and puts it together in a meaningful format like int, long int, address, char or string. This meaningful data gets stored in #contentInt/ #contentLongHex/ #contentString/ #contentChar of its ProcessManager
 /// @param Module specifies the form in which data is to be organized in order to deem it meaningful. Module is a string which can take "int", "string", "long int", "address", "char" or "string" as a valid argument.
-void ProcessManager::getContent(char * Module)
+void ProcessManager::getContent(string Module)
 {	
 	char* op = Read();
 	if(Module=="int")
@@ -52,12 +57,14 @@ void ProcessManager::getContent(char * Module)
 			string s="";
 			for(int i=0;i<4;i++)
 			{
-				int x =(int)op[i];
+				unsigned int x =(unsigned int)op[i];
 				s = ToHex(x)+s;
 			}
 			s = "0x" + s;
-			contentInt = stoi(s, NULL, 16);
-			cout<<dec<<contentInt<<endl; //Comment Line When Not Debugging
+			contentInt = stoul(s, NULL, 16);
+			if (debug ==true){
+				cout<<hex<<BaseAddress<<":"<<dec<<contentInt<<endl; //Comment Line When Not Debugging
+			}
 		}	
 		else
 		{
@@ -71,12 +78,15 @@ void ProcessManager::getContent(char * Module)
 			string s="";
 			for(int i=0;i<8;i++)
 			{
-				int x =(long int)op[i];
+				int x =(int)op[i];
 				s = ToHex(x)+s;
 			}
-			contentInt = stol(s, NULL, 16);
-			cout<<dec<<contentInt<<endl;//Comment Line When Not Debugging
-			cout <<hex<< contentInt << endl;//Comment Line When Not Debugging
+			s = "0x" + s;
+			contentLongInt = stol(s, NULL, 16);
+			if (debug ==true){
+				cout<<dec<<contentLongInt<<endl;//Comment Line When Not Debugging
+				cout <<hex<< contentLongInt << endl;//Comment Line When Not Debugging
+			}
 		}	
 		else
 		{
@@ -87,7 +97,9 @@ void ProcessManager::getContent(char * Module)
 		if(Module=="char")
 	{
 		contentChar=op[0];
-		cout<<contentChar<<endl;//Comment Line When Not Debugging	
+		if (debug ==true){
+			cout<<contentChar<<endl;//Comment Line When Not Debugging	
+		}
 	}
 		if(Module=="string")
 	{
@@ -97,7 +109,9 @@ void ProcessManager::getContent(char * Module)
 			s = op[i] + s;
 		}
 		contentString=s;
-		cout<<contentString<<endl;//Comment Line When Not Debugging	
+		if (debug ==true){
+			cout<<contentString<<endl;//Comment Line When Not Debugging
+		}	
 	}
 }
 

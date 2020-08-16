@@ -25,6 +25,10 @@ int main(int argc, char* argv[])
 	}
 	vector <long> v= P.scanProcess(1234);
 	
+	cin>>id;
+
+	ProcessManager P(id,0,4);
+	vector <long> v= P.scanProcess(1234);
 	/*ProcessManager P(id);
 	P.FindBaseAddress("[stack]");
 	P.PrintContent();*/
