@@ -59,6 +59,8 @@ public:
 	int ** Addresses ; 
 	/// stores number of rows in maps file.
 	int AddressesRows ;
+	/// indicates that we're trying to debug
+	bool debug;
 	///Creates class ProcessManager with only process ID initialized. 
 	///
 	/// @param id : PID of the process in which we are interested.
@@ -94,5 +96,6 @@ public:
 	vector<long> scanProcess(vector<long> addresses, long target);
 	vector<long> scanProcess(vector<long> addresses, string target);
 	vector<long> scanProcess(vector<long> addresses, char target);
-
+	void changeContent(long address , string test);
+	void changeContent(long address , int test);
 };
