@@ -1,6 +1,6 @@
 #include "ProcessManager.h"
 using namespace std;
-///Internal Function to generate 2 digit hex string from a given int/other value 
+///Internal Function to generate 2 digit hex string from a given int/other value
 template <typename T>
 string ToHex(T i)
 {
@@ -74,11 +74,11 @@ void ProcessManager::getContent(string Module)
 			string s="";
 			for(int i=0;i<8;i++)
 			{
-				int x =(int)op[i];
+				unsigned int x =(unsigned int)op[i];
 				s = ToHex(x)+s;
 			}
 			s = "0x" + s;
-			contentLongInt = stol(s, NULL, 16);
+			contentLongInt = stoul(s, NULL, 16);
 			cout<<dec<<contentLongInt<<endl;//Comment Line When Not Debugging
 			cout <<hex<< contentLongInt << endl;//Comment Line When Not Debugging
 		}	

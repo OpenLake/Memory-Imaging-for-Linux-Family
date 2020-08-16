@@ -20,6 +20,8 @@
 #include<cstdlib>
 #include<vector>
 
+#include<set>
+#include<algorithm>
 
 using namespace std;
 typedef unsigned int uint;
@@ -91,5 +93,6 @@ public:
 	vector<long> scanProcess(vector<long> addresses, long target);
 	vector<long> scanProcess(vector<long> addresses, string target);
 	vector<long> scanProcess(vector<long> addresses, char target);
-
+	set<unsigned long int> MemoryOffsets(vector<long> addresses);
+	set <unsigned long> StaticMemorySet(set<unsigned long> offsets1,set<unsigned long> offsets2);
 };
