@@ -3,7 +3,7 @@ filesScanProcesses = Scan.cpp main.cpp
 filesGetBaseAddresses = MemoryScan.cpp main.cpp
 filesRead = readAndGetContent.cpp main.cpp
 filesGetContent = readAndGetContent.cpp main.cpp
-rebulildables = *.out 
+rebulildables = *.out
 ALL = *.cpp
 
 intro: 
@@ -11,8 +11,7 @@ intro:
 main: 
 	@g++ $(ALL) -o main.out && ./main.out 
 loop: 
-	# cd debugging/ 
-	g++ loop.cpp -o loop.out && ./loop.out
+	cd test/ && g++ loop.cpp -o loop.out && ./loop.out
 loopPID:
 	ps aux | grep ./loop | grep -v grep
 debug: 
@@ -27,5 +26,5 @@ read: $(filesRead)
 	@g++ $(filesRead) -o main.out && ./main.out 
 getContent: $(filesGetContent)
 	@g++ $(filesGetContent) -o main.out && ./main.out
-clean: $(rebulildables)
+clean: 
 	@rm $(rebulildables)
