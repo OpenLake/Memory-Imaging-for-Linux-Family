@@ -1,31 +1,15 @@
-/// Takes @param test (char*) and prints the address stored if @param test is a pointer.
 #include "ProcessManager.h"
 using namespace std;
 
-void ProcessManager :: identifierFunction(char* test) {
-		int testval = (int)strtol(test, NULL,16);
+/// Takes @param testval and returns true if the value stored in @param testval is an address.
+bool ProcessManager :: isAddress(long testval) {
 		int i =0;
-		int count=0;
 		// cout <<size <<endl;
-		while( i < AddressesRows ){
- 
-			if( *(*(Addresses+i)+0) < testval && testval < *(*(Addresses+i)+1)) {
-				cout << "Its there! \n";
-				int* address = (int*)testval;
-				printf("Address Stored: %p \n", address);
-				count +=1;
-			}
-			if( *(*(Addresses+i)+1) < testval && testval < *(*(Addresses+i)+0)) {
-				cout << "Its there \n";
-				int* address = (int*)testval;
-				printf("Address Stored: %p \n", address);
-				count+=1;
+		while( i < this->AddressesRows ){
+			if( *(*(this->Addresses+i)+0) <= testval && testval < *(*(this->Addresses+i)+1)) {
+				return true;
 			}
 		i++;
 	}
-	if(count==0) {
-		cout << "it isnt here!";
-	}
-	
-	
+	return false;
 }

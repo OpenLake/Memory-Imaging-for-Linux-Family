@@ -2,9 +2,6 @@
 
 #include <assert.h>
 
-#include <vector>
-#include <utility>
-
 using namespace std;
 
 /// Scanning Utility from addresses in Maps file
@@ -65,7 +62,7 @@ vector<long> ProcessManager::scanProcess(){
 			addresses.push_back(j);
 		}
 	}
-	cout << addresses.size() << " addresses found";
+	cout << addresses.size() << " addresses found" << endl;
 	return addresses;
 }
 
@@ -153,11 +150,3 @@ vector<long> ProcessManager::scanProcess(char target){
 	return matches;
 }
 
-/*int main(){
-	long id,BA;
-	cout << "Enter PID of the Process\n";
-	cin >> id;
-	ProcessManager P(id,0,4);
-	P.scanProcess(0);
-	return 0;
-}*/
