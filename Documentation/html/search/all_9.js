@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['read_22',['Read',['../class_process_manager.html#a2388ef551945a10fa880ddaba8a3dd9b',1,'ProcessManager']]],
-  ['readandgetcontent_2ecpp_23',['readAndGetContent.cpp',['../read_and_get_content_8cpp.html',1,'']]],
-  ['readme_2emd_24',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]]
+  ['memory_20imaging_20for_20linux_20family',['Memory Imaging for Linux Family',['../autotoc_md0.html',1,'']]],
+  ['main',['main',['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;main.cpp'],['../loop_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;loop.cpp']]],
+  ['main_2ecpp',['main.cpp',['../main_8cpp.html',1,'']]],
+  ['memoryscan_2ecpp',['MemoryScan.cpp',['../_memory_scan_8cpp.html',1,'']]]
 ];

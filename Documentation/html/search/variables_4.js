@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['span_60',['span',['../class_process_manager.html#a5a509ada8a76f4a4e3a2ad9d6b252b66',1,'ProcessManager']]]
+  ['next',['next',['../struct_process_manager_1_1pointer_node.html#a2aadb1b470b8fbbeb98e13c6c0867fe9',1,'ProcessManager::pointerNode']]]
 ];

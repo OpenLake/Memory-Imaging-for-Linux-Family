@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['identifier_2ecpp_13',['identifier.cpp',['../identifier_8cpp.html',1,'']]],
-  ['identifierfunction_14',['identifierFunction',['../class_process_manager.html#a610d5d4f8abb5d6b8305147893a4ead7',1,'ProcessManager']]]
+  ['getaddresses',['getAddresses',['../class_process_manager.html#abacf82f1317e8d1ba4db5184c6a4c4b2',1,'ProcessManager']]],
+  ['getaddresses_2ecpp',['getAddresses.cpp',['../get_addresses_8cpp.html',1,'']]],
+  ['getcontent',['getContent',['../class_process_manager.html#ad615945782bf08b1b871514188189203',1,'ProcessManager']]],
+  ['getpointermap',['getPointerMap',['../class_process_manager.html#aba8d3f277167d318bf2d11ed15233287',1,'ProcessManager']]]
 ];

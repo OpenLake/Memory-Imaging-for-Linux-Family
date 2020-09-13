@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['scan_2ecpp_25',['Scan.cpp',['../_scan_8cpp.html',1,'']]],
-  ['scanprocess_26',['scanProcess',['../class_process_manager.html#a25d6bbd02a7839812629e2a82f082606',1,'ProcessManager::scanProcess()'],['../class_process_manager.html#a8d73b602fc7f882f4b4f50f27b9a9059',1,'ProcessManager::scanProcess(int target)'],['../class_process_manager.html#aee748639d9511caa17726624fc7e4534',1,'ProcessManager::scanProcess(long target)'],['../class_process_manager.html#ae734d2126028df462fc956a6bbbb65a8',1,'ProcessManager::scanProcess(string target)'],['../class_process_manager.html#af3c54ded0f1d613dabd151bd96ced83f',1,'ProcessManager::scanProcess(char target)'],['../class_process_manager.html#a257bdd07f549bd1194e3fe17911a7b43',1,'ProcessManager::scanProcess(vector&lt; long &gt; addresses, int target)'],['../class_process_manager.html#ac56e5a95f0d5430df4300aa9294754b3',1,'ProcessManager::scanProcess(vector&lt; long &gt; addresses, long target)'],['../class_process_manager.html#a0bcb8dbe08488dc955b0cddf27135a73',1,'ProcessManager::scanProcess(vector&lt; long &gt; addresses, string target)'],['../class_process_manager.html#a6019b2fd4dae7d087937bdc6c0517fbd',1,'ProcessManager::scanProcess(vector&lt; long &gt; addresses, char target)']]],
-  ['span_27',['span',['../class_process_manager.html#a5a509ada8a76f4a4e3a2ad9d6b252b66',1,'ProcessManager']]]
+  ['next',['next',['../struct_process_manager_1_1pointer_node.html#a2aadb1b470b8fbbeb98e13c6c0867fe9',1,'ProcessManager::pointerNode']]]
 ];
