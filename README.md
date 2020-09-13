@@ -37,3 +37,13 @@ Do note that these comments are to be included before the class or function to b
 For more details see comments in files of branch DocumentationSupport while viewing index.html in documentation folder <br>
 For more refer relevant sections of the [video] (https://www.youtube.com/watch?v=TtRn3HsOm1s) 
 
+### Funtionalities:
+1. make main : runs all files 
+2. make loop : runs loop file 
+3. make debug : runs all files in debug mode
+4. make isPointer : 
+5. make scanProcesses :  
+6. make getBaseAddress : 
+7. make read :
+8. make getContent : 
+9. make clean : deletes all the rebuildables 
