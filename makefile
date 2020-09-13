@@ -28,3 +28,4 @@ getContent: $(filesGetContent)
 	@g++ $(filesGetContent) -o main.out && ./main.out --debug
 clean: 
 	@rm $(rebulildables)
+	
