@@ -17,14 +17,14 @@ loopPID:
 debug: 
 	@g++ $(ALL) -o main.out && ./main.out --debug
 isPointer: $(filesIsPointer)
-	@g++ $(filesIsPointer) -o main.out && ./main.out
+	@g++ $(filesIsPointer) -o main.out && ./main.out --debug
 scanProcesses: $(filesScanProcesses)
-	@g++ $(filesScanProcesses) -o main.out && ./main.out
+	@g++ $(filesScanProcesses) -o main.out && ./main.out --debug
 getBaseAddress: $(filesGetBaseAddresses)
-	@g++ $(filesGetBaseAddresses) -o main.out && ./main.out
+	@g++ $(filesGetBaseAddresses) -o main.out && ./main.out --debug
 read: $(filesRead)
-	@g++ $(filesRead) -o main.out && ./main.out 
+	@g++ $(filesRead) -o main.out && ./main.out --debug
 getContent: $(filesGetContent)
-	@g++ $(filesGetContent) -o main.out && ./main.out
+	@g++ $(filesGetContent) -o main.out && ./main.out --debug
 clean: 
 	@rm $(rebulildables)
