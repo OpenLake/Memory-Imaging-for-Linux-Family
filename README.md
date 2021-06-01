@@ -35,5 +35,5 @@ In short the config file that I have made will read the comment in the format:
 /// #classMember yada yada <br>
 Do note that these comments are to be included before the class or function to be described <br>
 For more details see comments in files of branch DocumentationSupport while viewing index.html in documentation folder <br>
-For more refer relevant sections of the ![video](https://www.youtube.com/watch?v=TtRn3HsOm1s) 
+For more refer relevant sections of the [video](https://www.youtube.com/watch?v=TtRn3HsOm1s) 
 
