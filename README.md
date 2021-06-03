@@ -1,6 +1,6 @@
 # Memory Imaging for Linux Family
 
-Memory Imaging for Linux Family by OpenLake scans through the virtual memory of a specified application running on Linux based distros.This utility can be used in monitoring and isolating a desired value that the application uses. Furthermore the functions in the software can be used to explore how different appliations are managing their data in the memory and can be used to chalk out the classes and objects used by the applications.
+Memory Imaging for Linux Family by OpenLake scans through the virtual memory of a specified application running on Linux based distros.This utility can be used in monitoring and isolating a desired value that the application uses. Furthermore the functions in the software can be used to explore how different applications are managing their data in the memory and can be used to chalk out the classes and objects used by the applications.
 
 ## Completed Features
 1. Isolation of starting address based on the identifying string (module) in the maps file for a given pid.
@@ -22,9 +22,15 @@ Memory Imaging for Linux Family by OpenLake scans through the virtual memory of 
 Open index.html in Documentation/html to view the documentation.
   
 ### Documentation Instructions:
-1. install doxygen
-2. run Doxyfile with doxygen (type "doxygen Doxyfile" in the terminal while in the toothbrush directory) after completing your work
-3. commit the changes of Doumentation folder in the branch
+1. Install doxygen by running the following command:
+``` 
+sudo apt-get install doxygen
+```
+2. Run Doxyfile with doxygen (type "doxygen Doxyfile" in the terminal while in the toothbrush directory) after completing your work
+ ``` 
+ doxygen Doxyfile
+```
+3. Commit the changes of Doumentation folder in the branch
 
 ### How to document:
 In short the config file that I have made will read the comment in the format:
