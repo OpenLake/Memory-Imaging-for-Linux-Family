@@ -16,11 +16,11 @@
 
 #include <elf.h>
 #include <sys/ptrace.h>
-#include <sys/auxv.h>
 #include <unistd.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/mman.h>
+#include <cerrno>
 
 
 #include<iomanip>
@@ -29,6 +29,8 @@
 #include<utility>
 #include<vector>
 #include<unordered_map>
+
+#include "Tools.h"
 
 /*[TODO] :
 1. Add return codes when exiting
@@ -50,8 +52,10 @@ private:
 
 	//objects which need to be destroyed afterwards
 	int mem_handle;
+
 	int exe_handle;
 	void *exe_map;
+	struct stat exe_stats;
 
 	std::string exe_path;
 	std::vector<Elf64_auxv_t> aux_vector;
@@ -69,6 +73,8 @@ public:
 	///
 	/// @param id : PID of the process in which we are interested.
 	ProcessManager(uint32_t);
+
+	~ProcessManager();
 
 	//stuff to parse the executable
 	void get_exe_path(uint32_t);

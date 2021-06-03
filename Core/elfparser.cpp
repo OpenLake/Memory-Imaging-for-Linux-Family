@@ -1,20 +1,16 @@
 #include "ProcessManager.h"
 
-bool check_magic(unsigned char *exe_map){
-
-#define em exe_map
+bool check_magic(Elf64_Ehdr* header){
+#define em header->e_ident
     if ( em[0] == ELFMAG0 && em[1] == ELFMAG1 && em[2] == ELFMAG2 && em[3] == ELFMAG3){
 #undef em
         return true;
     }
+    std::cout<<"ELF magic verified!";
     return false;
-    Elf64_Ehdr;
 };
 
 void ProcessManager::parse_headers(){
-    if (!check_magic((unsigned char *)exe_map)){
-        std::cout<<"The file is not a valid ELF.\n";
-        exit(-1);
-    }
-
+    Elf64_Ehdr* elf_header = (Elf64_Ehdr*)exe_map;
+    check_magic(elf_header);
 }
