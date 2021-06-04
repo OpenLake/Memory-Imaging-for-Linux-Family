@@ -33,11 +33,7 @@ sudo apt-get install doxygen
 3. Commit the changes of Doumentation folder in the branch by running the following commands in a sequence
 ``` 
  git add .
-```
-``` 
  git commit -m "<your message>"
-```
-``` 
  git push
 ```
 
